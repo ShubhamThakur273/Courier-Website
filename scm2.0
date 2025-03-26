@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courier Services</title>
+    <style>* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    /* Navigation Bar */
+    header {
+        background-color: #2C3E50;
+        padding: 10px 0;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    header nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 18px;
+    }
+
+    header nav a:hover {
+        text-decoration: underline;
+    }
+
+    /* Login & Register buttons */
+    .auth-buttons {
+        display: flex;
+        gap: 15px;
+    }
+
+    .auth-buttons a {
+        color: white;
+        background-color: #3498DB;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    .auth-buttons a:hover {
+        background-color: #2980B9;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: url('https://via.placeholder.com/1500x600') no-repeat center center/cover;
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+    }
+    .hero h1 {
+        font-size: 50px;
+        margin-bottom: 20px;
+        color: #1c2c3a;
+    }
+    .hero p {
+        font-size: 20px;
+        margin-bottom: 30px;
+        color: #f1f1f1;
+    }
+
+    .hero button {
+        background-color: #3498DB;
+        border: none;
+        padding: 15px 30px;
+        font-size: 18px;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .hero button:hover {
+        background-color: #2980B9;
+    }
+    /* Services Section */
+    .services {
+        display: flex;
+        justify-content: space-around;
+        padding: 50px 20px;
+        background-color: #ecf0f1;
+    }
+    .service-box {
+        text-align: center;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        width: 30%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .service-box:hover {
+        transform: translateY(-10px);
+    }
+
+    .service-box h3 {
+        margin-bottom: 10px;
+        color: #2C3E50;
+    }
+
+    .service-box p {
+        color: #7f8c8d;
+    }
+
+    /* Footer */
+    footer {
+        background-color: #2C3E50;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: auto;
+    }
+
+    footer p {
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+        /* Add your CSS styles here (same as before) */
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="auth-buttons">
+            <!-- Display Login/Register buttons if user is not logged in -->
+            <a href="login.html" id="loginBtn" style="display: inline-block;">Login</a>
+            <a href="register.html" id="registerBtn" style="display: inline-block;">Register</a>
+            <!-- Display 'My Profile' button if user is logged in -->
+            <a href="profile.html" id="profileBtn" style="display: none;">My Profile</a>
+            <a href="#" id="logoutBtn" style="display: none;">Logout</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Reliable Courier Services</h1>
+        <p>Fast, Safe, and Secure Delivery at Your Doorstep</p>
+        <button onclick="window.location.href='#services'">Explore Our Services</button>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="service-box">
+            <h3>Local Delivery</h3>
+            <p>Get your items delivered within the city in no time.</p>
+        </div>
+        <div class="service-box">
+            <h3>International Shipping</h3>
+            <p>Safe and secure delivery to any country across the globe.</p>
+        </div>
+        <div class="service-box">
+            <h3>Express Delivery</h3>
+            <p>Need it fast? We’ll deliver your parcel in hours!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Courier Services. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Simulate user login status with localStorage
+        let loggedInUser = localStorage.getItem('loggedInUser');
+
+        // If the user is logged in, show 'My Profile' and 'Logout' buttons
+        if (loggedInUser) {
+            document.getElementById('profileBtn').style.display = 'inline-block';
+            document.getElementById('logoutBtn').style.display = 'inline-block';
+            document.getElementById('loginBtn').style.display = 'none';
+            document.getElementById('registerBtn').style.display = 'none';
+        }
+
+        // Log out user and clear login status
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            localStorage.removeItem('loggedInUser');
+            window.location.reload(); // Reload to update UI
+        });
+    </script>
+
+</body>
+</html>
