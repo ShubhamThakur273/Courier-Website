@@ -2,15 +2,16 @@
 
 A simple and responsive **Post Courier Service Website** built using **HTML** and **CSS**. The website allows users to view courier services, track packages, and get information about delivery options.
 
-## 🚀 Features
+## 🤖Features
 
-- ✅ Home Page with Service Overview
-- ✅ About Us Section
-- ✅ Services Offered (Domestic, International, Same Day Delivery)
-- ✅ Courier Tracking Interface (Frontend Only)
-- ✅ Contact Us Form (Frontend Only)
-- ✅ Fully Responsive Design using Flexbox/Grid
-- ✅ Clean and modern UI
+-  Home Page with Service Overview
+-  About Us Section
+-  Product Details
+-  Services Offered (Domestic, Same Day Delivery)
+-  Courier Tracking Interface (Frontend Only)
+-  Contact Us Form (Frontend Only)
+-  Fully Responsive Design using Flexbox/Grid
+  
 
 ## 🖼️ Preview
 
@@ -18,7 +19,7 @@ A simple and responsive **Post Courier Service Website** built using **HTML** an
 
 ## 🛠️ Tech Stack
 
-- HTML5  
-- CSS3 (Flexbox + Grid)
+- HTML
+- CSS
 
 
