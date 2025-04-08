@@ -121,7 +121,6 @@
     </script>
 </body>
 </html>
-//This work was regarding scm 1.2 evaluation.
 
 
 
