@@ -38,7 +38,7 @@ Product review
         }
         p {
             color: #555;
-            font-size: 14px;
+            font-size: 15px;
         }
         .buttons {
             display: flex;
