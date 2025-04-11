@@ -18,9 +18,15 @@ A simple and responsive **Post Courier Service Website** built using **HTML** an
 
 //website screenshot
 
+## 👨‍💻 Team
+- Shubham Thakur - Manager
+- Rupali Mangla
+- Rohan Bisht
+- Reyan Ansari
+- Tanish
+
 ## 🛠️ Tech Stack
 
 - HTML
 - CSS
-
-
+- JavaScript
