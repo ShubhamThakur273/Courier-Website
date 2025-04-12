@@ -37,6 +37,7 @@
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
+            box-shadow: 1px 1px 5px rgb(233, 232, 232);
         }
 
         .btn:hover {
