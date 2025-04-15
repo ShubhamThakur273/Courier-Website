@@ -209,5 +209,19 @@
         </div>
     </div>
 </footer>
+    <script>
+         document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('service_8i4g6fs', 'template_2jx529o', this)
+      .then(function(response) {
+         alert("Message sent successfully! ✅");
+         document.getElementById("contact-form").reset();
+      }, function(error) {
+         alert("Failed to send message ❌\n" + error.text);
+      });
+  });
+
+    </script>
     </body>
 </html>
