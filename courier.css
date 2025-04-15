@@ -453,4 +453,47 @@
 .faq-item.active .arrow-icon {
     transform: rotate(180deg);
 }
-    
+
+.testimonials {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.testimonials .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 25px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.testimonial-card h4 {
+    font-weight: 600;
+    color: #222;
+}
