@@ -497,3 +497,12 @@
     font-weight: 600;
     color: #222;
 }
+.team-links li a i {
+    margin-right: 8px;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.team-links li a:hover i {
+    color: #ff6b00;
+}
