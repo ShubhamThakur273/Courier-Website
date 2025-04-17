@@ -410,6 +410,18 @@ Whether you're sending a gift, an important document, or a package, FlipZon ensu
       });
   });
 
+        document.getElementById("booking-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  emailjs.sendForm("service_8i4g6fs", "template_bqteb1j", this)
+    .then(() => {
+      alert("Booking request sent!");
+      this.reset();
+    })
+    .catch(error => {
+      alert("Failed to send booking. " + error);
+    });
+});
+        
     </script>
     </body>
 </html>
