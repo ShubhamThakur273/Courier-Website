@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="courier.css">
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-      (function(){
-        emailjs.init("JvC6HMd-zwoNlFQF2"); //Public key
-      })();
-    </script>
 </head>
 <body>
   <header>
@@ -379,44 +374,5 @@ Whether you're sending a gift, an important document, or a package, FlipZon ensu
         </div>
     </div>
 </footer>
-    <script>
-        const faqItems = document.querySelectorAll('.faq-item');
-  
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      question.addEventListener('click', () => {
-        // Close all open answers
-        faqItems.forEach(i => {
-          if (i !== item) i.classList.remove('active');
-        });
-        // Toggle this one
-        item.classList.toggle('active');
-      });
-    });
-         document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm('service_8i4g6fs', 'template_2jx529o', this)
-      .then(function(response) {
-         alert("Message sent successfully! ✅");
-         document.getElementById("contact-form").reset();
-      }, function(error) {
-         alert("Failed to send message ❌\n" + error.text);
-      });
-  });
-
-        document.getElementById("booking-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-  emailjs.sendForm("service_8i4g6fs", "template_bqteb1j", this)
-    .then(() => {
-      alert("Booking request sent!");
-      this.reset();
-    })
-    .catch(error => {
-      alert("Failed to send booking. " + error);
-    });
-});
-        
-    </script>
     </body>
 </html>
