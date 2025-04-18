@@ -70,7 +70,11 @@
     <section class="booking" id="booking">
     <div class="container">
         <h2 class="section-title">Book a Delivery</h2>
-        <div class="booking-form-container">
+        <div class="booking-intro">
+            <p>Your package is waiting to go — let's get it booked!</p>
+            <button id="show-booking-form" class="btn">Book Now</button>
+        </div>
+        <div class="booking-form-container" id="booking-form-container" style="display: none;">
             <form id="booking-form">
                 <input type="hidden" name="tracking_number" id="tracking_number">
                 <div class="form-section">
@@ -120,7 +124,7 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="package-type">Package Type</label>
-                            <select id="package-type" name="package_type" required>
+                            <select id="Parcel-type" name="parcel_type" required>
                                 <option value="">Select Parcel type</option>
                                 <option value="document">Documents</option>
                                 <option value="parcel">Parcel</option>
@@ -171,6 +175,7 @@
                         <textarea name="message" placeholder="Additional Instructions"></textarea>
                     </div>
                 </div>
+
                 <button type="submit" class="btn btn-large">Book Delivery Now</button>
             </form>
         </div>
