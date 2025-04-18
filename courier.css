@@ -78,9 +78,13 @@
             font-size: 1.8rem;
             font-weight: 700;
             color: #ff6b00;
+            margin-left: -30px;
         }
         .logo span {
             color: #333;
+        }
+         nav{
+            margin-right: -30px;
         }
 
         nav ul {
