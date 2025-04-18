@@ -11,11 +11,6 @@ A simple and responsive **Post Courier Service Website** built using **HTML** an
 -  Courier Tracking Interface (Frontend Only)
 -  Contact Us Form 
 -  Fully Responsive Design using Flexbox/Grid
-  
-
-## 🖼️ Preview
-
-//website screenshot
 
 ## 👨‍💻 Team
 - Shubham Thakur - Manager
