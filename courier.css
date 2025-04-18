@@ -636,3 +636,19 @@
         padding: 1rem;
     }
 }
+
+.booking-intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.booking-intro p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+#show-booking-form {
+    margin: 0 auto;
+    display: block;
+    max-width: 200px;
+}
