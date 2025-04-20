@@ -46,7 +46,86 @@
     </main>
 <div class="print-receipt-section" id="print-receipt-section">
    </div>
-
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        const trackingData = {
+            "FLPZ123456789": {
+                status: "In Transit",
+                progress: 50,
+                activeStep: 2,
+                estimatedDelivery: "May 15, 2025",
+                weight: "2.5 kg",
+                dimensions: "25 x 15 x 10 cm",
+                deliveryType: "Express (24 hours)",
+                sender: "123 Main St, New Delhi, India",
+                receiver: "456 Park Ave, Mumbai, India",
+                route: {
+                    origin: [28.6139, 77.2090],
+                    destination: [19.0760, 72.8777],
+                    current: [23.2599, 77.4126], // Bhopal
+                    stops: [
+                        { coords: [28.6139, 77.2090], name: "New Delhi Distribution Center" },
+                        { coords: [23.2599, 77.4126], name: "Bhopal Transit Hub" },
+                        { coords: [19.0760, 72.8777], name: "Mumbai Delivery Hub" }
+                    ]
+                },
+                timeline: [
+                    { date: "May 12, 2025 - 10:30 AM", text: "Package has arrived at Bhopal transit hub", location: "Bhopal, India" },
+                    { date: "May 12, 2025 - 8:15 AM", text: "Package departed from Delhi facility", location: "New Delhi, India" },
+                    { date: "May 11, 2025 - 4:45 PM", text: "Package processed and ready for dispatch", location: "New Delhi, India" },
+                    { date: "May 11, 2025 - 2:30 PM", text: "Order received and processing started", location: "New Delhi, India" }
+                ]
+            },
+            "FLPZ987654321": {
+                status: "Processing",
+                progress: 25,
+                activeStep: 1,
+                estimatedDelivery: "May 18, 2025",
+                weight: "5.2 kg",
+                dimensions: "40 x 30 x 20 cm",
+                deliveryType: "Standard (3-5 days)",
+                sender: "789 Tech Park, Bangalore, India",
+                receiver: "321 Garden St, Chennai, India",
+                route: {
+                    origin: [12.9716, 77.5946],
+                    destination: [13.0827, 80.2707],
+                    current: [12.9716, 77.5946], // Bangalore
+                    stops: [
+                        { coords: [12.9716, 77.5946], name: "Bangalore Warehouse" },
+                        { coords: [13.0827, 80.2707], name: "Chennai Delivery Center" }
+                    ]
+                },
+                timeline: [
+                    { date: "May 14, 2025 - 11:20 AM", text: "Package is being processed at warehouse", location: "Bangalore, India" },
+                    { date: "May 14, 2025 - 9:00 AM", text: "Order received and verification complete", location: "Bangalore, India" }
+                ]
+            },
+            "FLPZ456789123": {
+                status: "Out for Delivery",
+                progress: 75,
+                activeStep: 3,
+                estimatedDelivery: "May 13, 2025 (Today)",
+                weight: "1.8 kg",
+                dimensions: "20 x 15 x 5 cm",
+                deliveryType: "Same Day Delivery",
+                sender: "555 Market St, Kolkata, India",
+                receiver: "888 Lake View, Hyderabad, India",
+                route: {
+                    origin: [22.5726, 88.3639],
+                    destination: [17.3850, 78.4867],
+                    current: [17.3850, 78.4867], // Hyderabad
+                    stops: [
+                        { coords: [22.5726, 88.3639], name: "Kolkata Sorting Facility" },
+                        { coords: [17.3850, 78.4867], name: "Hyderabad Local Delivery" }
+                    ]
+                },
+                timeline: [
+                    { date: "May 13, 2025 - 8:45 AM", text: "Package is out for delivery", location: "Hyderabad, India" },
+                    { date: "May 13, 2025 - 6:30 AM", text: "Package arrived at local delivery center", location: "Hyderabad, India" },
+                    { date: "May 12, 2025 - 10:15 PM", text: "Package departed from Kolkata", location: "Kolkata, India" },
+                    { date: "May 12, 2025 - 5:30 PM", text: "Package processed at origin facility", location: "Kolkata, India" }
+                ]
+            },     </script>
     
   </body>
 </html>
