@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FlipZon Admin Panel</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <style>
     * {
       box-sizing: border-box;
@@ -129,5 +131,89 @@
       </div>
     </div>
   </div>
+  <div class="card">
+    <h3>Orders Overview</h3>
+    <canvas id="ordersChart"></canvas>
+  </div>
+
+  <div class="card">
+    <h3>User Growth</h3>
+    <canvas id="usersChart"></canvas>
+  </div>
+
+  <div class="card">
+    <h3>Delivery Status</h3>
+    <canvas id="deliveryChart"></canvas>
+  </div>
+</div>
+
+<script>
+  // Orders Line Chart
+  const ctxOrders = document.getElementById('ordersChart').getContext('2d');
+  new Chart(ctxOrders, {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      datasets: [{
+        label: 'Orders',
+        data: [120, 190, 300, 250, 280, 320],
+        backgroundColor: 'rgba(242, 108, 0, 0.2)',
+        borderColor: '#f26c00',
+        borderWidth: 2,
+        tension: 0.4,
+        fill: true,
+        pointBackgroundColor: '#f26c00'
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  // Users Bar Chart
+  const ctxUsers = document.getElementById('usersChart').getContext('2d');
+  new Chart(ctxUsers, {
+    type: 'bar',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      datasets: [{
+        label: 'New Users',
+        data: [30, 45, 60, 50, 65, 80],
+        backgroundColor: '#f26c00'
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  // Delivery Pie Chart
+  const ctxDelivery = document.getElementById('deliveryChart').getContext('2d');
+  new Chart(ctxDelivery, {
+    type: 'pie',
+    data: {
+      labels: ['Delivered', 'In Transit', 'Cancelled'],
+      datasets: [{
+        label: 'Delivery Status',
+        data: [876, 234, 135],
+        backgroundColor: ['#f26c00', '#ffc107', '#dc3545']
+      }]
+    },
+    options: {
+      responsive: true
+    }
+  });
+</script>
+  
 </body>
 </html>
