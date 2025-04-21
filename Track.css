@@ -1,0 +1,75 @@
+.tracking-search {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #tracking-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        #tracking-number-input {
+            flex: 1;
+            padding: 18px 25px;
+            font-size: 1.1rem;
+            border: 2px solid #ff6b00;
+            border-radius: 8px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        #tracking-number-input:focus {
+            outline: none;
+            border-color: #e05d00;
+            box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
+        }
+
+        #tracking-number-input::placeholder {
+            color: #999;
+        }
+
+        #tracking-form .btn {
+            padding: 0 30px;
+            background-color: #ff6b00;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #tracking-form .btn:hover {
+            background-color: #e05d00;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .tracking-search {
+                padding: 15px;
+            }
+            
+            #tracking-form {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            #tracking-number-input,
+            #tracking-form .btn {
+                width: 100%;
+                padding: 16px 20px;
+            }
+            
+            #tracking-form .btn {
+                justify-content: center;
+            }
+        }
