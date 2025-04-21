@@ -179,6 +179,30 @@
                 ]
             }
         };
+         document.addEventListener('DOMContentLoaded', function() {
+           loadRecentTrackingCards();
+        const urlParams = new URLSearchParams(window.location.search);
+            const trackingNumber = urlParams.get('tracking');
+             if (trackingNumber && trackingData[trackingNumber]) {
+                 document.getElementById('tracking-number-input').value = trackingNumber;
+                 loadTrackingData(trackingNumber);
+             } else {
+                 const firstTrackingNumber = Object.keys(trackingData)[0];
+                 loadTrackingData(firstTrackingNumber);
+           }
+          document.getElementById('tracking-form').addEventListener('submit', function(e) {
+              e.preventDefault();
+              const trackingNumber = document.getElementById('tracking-number-input').value.trim();
+                 if (trackingData[trackingNumber]) {
+                     loadTrackingData(trackingNumber);
+                     history.pushState(null, null, `?tracking=${trackingNumber}`);
+                } else {
+                  alert('Tracking number not found. Please check and try again.');
+               }
+            });
+         });
+
+        
             </script>
   </body>
 </html>
