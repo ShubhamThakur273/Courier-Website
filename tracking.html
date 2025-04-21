@@ -201,8 +201,75 @@
                }
             });
          });
+function loadRecentTrackingCards() {
+            const cardsContainer = document.getElementById('recent-tracking-cards');
+            cardsContainer.innerHTML = '';
+            Object.keys(trackingData).forEach(trackingNumber => {
+                const data = trackingData[trackingNumber];
+                const statusClass = getStatusClass(data.status);
+                const card = document.createElement('div');
+                card.className = 'tracking-card';
+                card.innerHTML = `
+                    <div class="tracking-card-number">${trackingNumber}</div>
+                    <div class="tracking-card-status">
+                        <span>${data.status}</span>
+                        <span class="status-badge ${statusClass}">${data.status}</span>
+                    </div>
+                    <div class="tracking-card-destination">To: ${data.receiver.split(',')[2].trim()}</div>
+                `;
+                card.addEventListener('click', () => {
+                    document.getElementById('tracking-number-input').value = trackingNumber;
+                    loadTrackingData(trackingNumber);
+                    history.pushState(null, null, `?tracking=${trackingNumber}`);
+                    document.querySelectorAll('.tracking-card').forEach(c => {
+                        c.classList.remove('active');
+                    });
+                    card.classList.add('active');
+                });
+                cardsContainer.appendChild(card);
+            });
+        }
+        function getStatusClass(status) {
+            switch(status.toLowerCase()) {
+                case 'processing': return 'status-processing';
+                case 'in transit': return 'status-transit';
+                case 'out for delivery': return 'status-out';
+                case 'delivered': return 'status-delivered';
+                default: return '';
+            }
+        }
+        function loadTrackingData(trackingNumber) {
+            const data = trackingData[trackingNumber];
+            const resultsContainer = document.getElementById('tracking-results');
+            const statusItems = [
+                { icon: 'fa-shopping-cart', text: 'Order Placed' },
+                { icon: 'fa-cog', text: 'Processing' },
+                { icon: 'fa-truck', text: 'In Transit' },
+                { icon: 'fa-home', text: 'Out for Delivery' },
+                { icon: 'fa-box-open', text: 'Delivered' }
+            ];
+            let statusHTML = `
+                <div class="tracking-status">
+                    <div class="status-progress">
+                        <div class="status-progress-bar" style="width: ${data.progress}%;"></div>
+                    </div>
+            `;
+            statusItems.forEach((item, index) => {
+                let itemClass = '';
+                if (index < data.activeStep) itemClass = 'completed';
+                else if (index === data.activeStep) itemClass = 'active';
+                statusHTML += `
+                    <div class="status-item ${itemClass}">
+                        <div class="status-icon">
+                            <i class="fas ${item.icon}"></i>
+                        </div>
+                        <div class="status-text">${item.text}</div>
+                    </div>
+                `;
+            });
+            statusHTML += `</div>`;
 
-        
+            
             </script>
   </body>
 </html>
