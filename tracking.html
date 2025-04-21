@@ -125,7 +125,60 @@
                     { date: "May 12, 2025 - 10:15 PM", text: "Package departed from Kolkata", location: "Kolkata, India" },
                     { date: "May 12, 2025 - 5:30 PM", text: "Package processed at origin facility", location: "Kolkata, India" }
                 ]
-            },     </script>
-    
+            },    
+            "FLPZ987654321": {
+    status: "In Transit",
+    progress: 60,
+    activeStep: 2,
+    estimatedDelivery: "May 12, 2025",
+    weight: "1.5 kg",
+    dimensions: "25 x 15 x 10 cm",
+    deliveryType: "Standard (4-5 days)",
+    sender: "11 Green Avenue, Delhi, India",
+    receiver: "78 Tech Hub, Bengaluru, India",
+    route: {
+        origin: [28.6139, 77.2090], // Delhi
+        destination: [12.9716, 77.5946], // Bengaluru
+        current: [17.3850, 78.4867], // Hyderabad
+        stops: [
+            { coords: [28.6139, 77.2090], name: "Delhi Dispatch Center" },
+            { coords: [17.3850, 78.4867], name: "Hyderabad Transit Hub" },
+            { coords: [12.9716, 77.5946], name: "Bengaluru Delivery Point" }
+        ]
+    },
+    timeline: [
+        { date: "May 10, 2025 - 6:00 PM", text: "Arrived at Hyderabad transit hub", location: "Hyderabad, India" },
+        { date: "May 10, 2025 - 10:00 AM", text: "Departed from Delhi facility", location: "Delhi, India" },
+        { date: "May 9, 2025 - 4:00 PM", text: "Shipment picked up", location: "Delhi, India" }
+    ]
+},
+            "FLPZ789123456": {
+                status: "Delivered",
+                progress: 100,
+                activeStep: 4,
+                estimatedDelivery: "May 10, 2025",
+                weight: "3.0 kg",
+                dimensions: "30 x 20 x 15 cm",
+                deliveryType: "Express (48 hours)",
+                sender: "222 Business Park, Pune, India",
+                receiver: "444 Hillside, Ahmedabad, India",
+                route: {
+                    origin: [18.5204, 73.8567],
+                    destination: [23.0225, 72.5714],
+                    current: [23.0225, 72.5714], // Ahmedabad
+                    stops: [
+                        { coords: [18.5204, 73.8567], name: "Pune Dispatch Center" },
+                        { coords: [23.0225, 72.5714], name: "Ahmedabad Delivery Point" }
+                    ]
+                },
+                timeline: [
+                    { date: "May 10, 2025 - 2:15 PM", text: "Package delivered successfully", location: "Ahmedabad, India" },
+                    { date: "May 10, 2025 - 11:30 AM", text: "Package is out for delivery", location: "Ahmedabad, India" },
+                    { date: "May 10, 2025 - 9:00 AM", text: "Package arrived at local facility", location: "Ahmedabad, India" },
+                    { date: "May 9, 2025 - 7:45 PM", text: "Package departed from Pune", location: "Pune, India" }
+                ]
+            }
+        };
+            </script>
   </body>
 </html>
