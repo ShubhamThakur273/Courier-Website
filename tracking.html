@@ -282,6 +282,70 @@ let timelineHTML = '';
                     </div>
                 `;
             });
+resultsContainer.innerHTML = `
+                ${statusHTML}
+                
+                <div class="tracking-details">
+                    <div class="package-info">
+                        <h3>Package Information</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Tracking Number:</span>
+                                <span class="info-value">${trackingNumber}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Status:</span>
+                                <span class="info-value">${data.status}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Estimated Delivery:</span>
+                                <span class="info-value">${data.estimatedDelivery}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Weight:</span>
+                                <span class="info-value">${data.weight}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Dimensions:</span>
+                                <span class="info-value">${data.dimensions}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Delivery Type:</span>
+                                <span class="info-value">${data.deliveryType}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sender-receiver">
+                            <div class="address-card">
+                                <h4>Sender</h4>
+                                <p>${data.sender}</p>
+                            </div>
+                            <div class="address-card">
+                                <h4>Receiver</h4>
+                                <p>${data.receiver}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="map-container">
+                        <div id="tracking-map"></div>
+                    </div>
+                </div>
+                
+                <div class="timeline">
+                    <h3>Shipment History</h3>
+                    ${timelineHTML}
+                </div>
+                
+                <div class="tracking-actions">
+                    <button class="btn btn-outline" id="print-receipt">
+                        <i class="fas fa-print"></i> Print Receipt
+                    </button>
+                    <button class="btn" id="contact-support">
+                        <i class="fas fa-headset"></i> Contact Support
+                    </button>
+                </div>
+            `;
 
             
             </script>
