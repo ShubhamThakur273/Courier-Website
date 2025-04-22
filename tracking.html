@@ -346,6 +346,29 @@ resultsContainer.innerHTML = `
                     </button>
                 </div>
             `;
+            initMap(data.route);
+            
+           
+            document.getElementById('print-receipt')?.addEventListener('click', function() {
+                preparePrintReceipt(trackingNumber, data);
+                setTimeout(() => {  //added now extra
+                window.print();
+            }, 100);
+            });
+            
+            document.getElementById('contact-support')?.addEventListener('click', function() {
+                window.location.href = 'index.html#contact';
+            });
+            
+           
+            document.querySelectorAll('.tracking-card').forEach(card => {
+                const cardNumber = card.querySelector('.tracking-card-number').textContent;
+                card.classList.toggle('active', cardNumber === trackingNumber);
+            });
+        }
+
+        function preparePrintReceipt(trackingNumber, data) {
+            const printSection = document.getElementById('print-receipt-section');
 
             
             </script>
