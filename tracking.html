@@ -433,6 +433,56 @@ resultsContainer.innerHTML = `
                     <p>For any inquiries, please contact our customer support</p>
                 </div>
             `; 
+            printSection.style.visibility = "visible";
+    printSection.style.position = "static";
+    printSection.style.opacity = "1";
+        }
+        function initMap(routeData) {
+         
+            const oldMap = document.getElementById('tracking-map');
+            if (oldMap._leaflet_map) {
+                oldMap._leaflet_map.remove();
+            }
+            
+           // Initialize new map
+           const map = L.map('tracking-map').setView(routeData.current, 5);
+            
+         
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+           
+            routeData.stops.forEach((stop, index) => {
+                const isOrigin = index === 0;
+                const isDestination = index === routeData.stops.length - 1;
+                const isCurrent = stop.coords[0] === routeData.current[0] && 
+                                 stop.coords[1] === routeData.current[1];
+                
+                let iconColor = 'blue';
+                if (isOrigin) iconColor = 'green';
+                if (isDestination) iconColor = 'red';
+                if (isCurrent) iconColor = 'orange';
+                
+                const icon = L.divIcon({
+                    className: 'custom-icon',
+                    html: <div style="background-color: ${iconColor}; width: 20px; height: 20px; border-radius: 50%; border: 2px solid white;"></div>,
+                    iconSize: [24, 24],
+                    iconAnchor: [12, 12]
+                });
+                
+                const marker = L.marker(stop.coords, { icon }).addTo(map);
+                
+                let popupText = stop.name;
+                if (isOrigin) popupText = 'Origin: ' + popupText;
+                if (isDestination) popupText = 'Destination: ' + popupText;
+                if (isCurrent) popupText += ' (Current Location)';
+                
+                marker.bindPopup(popupText);
+                
+                if (isCurrent) {
+                    marker.openPopup();
+                }
+            });
             
             
             </script>
