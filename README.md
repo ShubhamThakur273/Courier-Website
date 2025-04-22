@@ -1,6 +1,6 @@
 # 📦 Post Courier Website
 
-A simple and responsive **Post Courier Service Website** built using **HTML** and **CSS**. The website allows users to view courier services, track packages, and get information about delivery options.
+A simple and responsive Post Courier Service Website that offers users an intuitive way to explore courier options, track shipments, view pricing, and connect with the service team — all through a clean and user-friendly interface.
 
 ## 🤖Features
 
@@ -13,14 +13,15 @@ A simple and responsive **Post Courier Service Website** built using **HTML** an
 -  Fully Responsive Design using Flexbox/Grid
 
 ## 👨‍💻 Team
-- Shubham Thakur - Manager
-- Rupali Mangla
-- Rohan Bisht
-- Reyan Ansari
-- Tanish
+- **Shubham Thakur** - Project Manager
+- **Rupali Mangla**
+- **Rohan Bisht**
+- **Reyan Ansari**
+- **Tanish**
 
 ## 🛠️ Tech Stack
 
-- HTML
-- CSS
-- JavaScript
+- 🌐 HTML  
+- 🎨 CSS  
+- ⚙️ JavaScript
+
