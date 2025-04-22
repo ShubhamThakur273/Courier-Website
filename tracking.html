@@ -369,7 +369,71 @@ resultsContainer.innerHTML = `
 
         function preparePrintReceipt(trackingNumber, data) {
             const printSection = document.getElementById('print-receipt-section');
-
+        let timelinePrintHTML = '';
+            data.timeline.forEach(item => {
+                timelinePrintHTML += `
+                    <div class="receipt-timeline-item">
+                        <div class="receipt-timeline-date">${item.date}</div>
+                        <div class="receipt-timeline-text">${item.text}</div>
+                        <div class="receipt-timeline-location">${item.location}</div>
+                    </div>
+                `;
+            });
+            
+            printSection.innerHTML = `
+                <div class="receipt-header">
+                    <h2>FlipZon Shipping Receipt</h2>
+                    <p>Tracking Number: ${trackingNumber}</p>
+                    <p>Printed on: ${new Date().toLocaleString()}</p>
+                </div>
+                
+                <div class="receipt-details">
+                    <div class="receipt-row">
+                        <div class="receipt-label">Status:</div>
+                        <div class="receipt-value">${data.status}</div>
+                    </div>
+                    <div class="receipt-row">
+                        <div class="receipt-label">Estimated Delivery:</div>
+                        <div class="receipt-value">${data.estimatedDelivery}</div>
+                    </div>
+                    <div class="receipt-row">
+                        <div class="receipt-label">Weight:</div>
+                        <div class="receipt-value">${data.weight}</div>
+                    </div>
+                    <div class="receipt-row">
+                        <div class="receipt-label">Dimensions:</div>
+                        <div class="receipt-value">${data.dimensions}</div>
+                    </div>
+                    <div class="receipt-row">
+                        <div class="receipt-label">Service Type:</div>
+                        <div class="receipt-value">${data.deliveryType}</div>
+                    </div>
+                    
+                    <div class="receipt-divider"></div>
+                    
+                    <div class="receipt-row">
+                        <div class="receipt-label">Sender:</div>
+                        <div class="receipt-value">${data.sender}</div>
+                    </div>
+                    <div class="receipt-row">
+                        <div class="receipt-label">Receiver:</div>
+                        <div class="receipt-value">${data.receiver}</div>
+                    </div>
+                </div>
+                
+                <div class="receipt-divider"></div>
+                
+                <h3>Shipment Timeline</h3>
+                <div class="receipt-timeline">
+                    ${timelinePrintHTML}
+                </div>
+                
+                <div class="receipt-footer">
+                    <p>Thank you for choosing FlipZon for your shipping needs</p>
+                    <p>For any inquiries, please contact our customer support</p>
+                </div>
+            `; 
+            
             
             </script>
   </body>
