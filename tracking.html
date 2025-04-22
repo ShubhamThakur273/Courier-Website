@@ -269,6 +269,19 @@ function loadRecentTrackingCards() {
                 `;
             });
             statusHTML += `</div>`;
+let timelineHTML = '';
+            data.timeline.forEach((item, index) => {
+                timelineHTML += `
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">${item.date}</div>
+                            <div class="timeline-text">${item.text}</div>
+                            <div class="timeline-location">${item.location}</div>
+                        </div>
+                    </div>
+                `;
+            });
 
             
             </script>
