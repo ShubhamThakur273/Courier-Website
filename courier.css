@@ -267,8 +267,13 @@
             text-align: center;
             transition: all 0.3s ease;
         }
-        .pricing-card.popular {
+        .pricing-card:hover{ 
+            border: solid #ff6b00 2px;
+        }
+        .pricing-card.popular:hover{
             border: 2px solid #ff6b00;
+        }
+        .pricing-card.popular {
             position: relative;
         }
         .popular-tag {
