@@ -274,3 +274,121 @@
                 padding: 14px 24px;
             }
         }
+ .print-receipt-section {
+            display: none;
+        }
+
+        
+         @media print {
+            body * {
+                visibility: hidden;
+            }
+            
+            .print-receipt-section,
+            .print-receipt-section * {
+                visibility: visible;
+            }
+            
+            .print-receipt-section {
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding: 20px;
+                background: white;
+                color: black;
+            }
+            
+            @media print {
+    .print-receipt-section {
+        page-break-after: avoid !important;
+        page-break-before: avoid !important;
+        page-break-inside: avoid !important;
+    }
+    
+    html, body {
+        height: auto !important;
+        overflow: visible !important;
+    }
+}
+
+            .receipt-header {
+                text-align: center;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #000;
+            }
+            
+            .receipt-header h2 {
+                font-size: 20px;
+                margin: 5px 0;
+                color: #000;
+            }
+            
+            .receipt-header p {
+                font-size: 14px;
+                margin: 5px 0;
+            }
+            
+            .receipt-details {
+                margin: 15px 0;
+            }
+            
+            .receipt-row {
+                display: flex;
+                margin-bottom: 8px;
+            }
+            
+            .receipt-label {
+                font-weight: bold;
+                width: 120px;
+            }
+            
+            .receipt-value {
+                flex: 1;
+            }
+            
+            .receipt-divider {
+                border-top: 1px dashed #000;
+                margin: 15px 0;
+            }
+            
+            .receipt-footer {
+                text-align: center;
+                font-size: 12px;
+                margin-top: 20px;
+            }
+            
+            .receipt-timeline {
+                margin-top: 20px;
+            }
+            
+            .receipt-timeline-item {
+                margin-bottom: 10px;
+                padding-left: 15px;
+                border-left: 2px solid #ff6b00;
+            }
+            
+            .receipt-timeline-date {
+                font-weight: bold;
+            }
+            
+            .receipt-timeline-text {
+                margin-left: 10px;
+            }
+            
+            .receipt-timeline-location {
+                font-style: italic;
+                margin-left: 10px;
+                color: #555;
+            }
+            
+            button {
+                display: none !important;
+            }
+        }
+
+        @page {
+    size: auto;
+    margin: 5mm 5mm 5mm 5mm;
