@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway - FlipZon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ff6b00;
+            margin-left: -30px;
+        }
+        
+        .logo span {
+            color: #333;
+        }
+        
+        nav {
+            margin-right: -30px;
+        }
+        
+        nav ul {
+            display: flex;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #ff6b00;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #ff6b00;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 1px 1px 5px rgb(233, 232, 232);
+        }
+        
+        .btn:hover {
+            background-color: #e05d00;
+            transform: translateY(-2px);
+        }
+        
+        .payment-container {
+            padding: 120px 0 60px;
+        }
+        
+        .payment-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .payment-header h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .payment-header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        .payment-content {
+            display: flex;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .payment-summary {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .payment-summary h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #ff6b00;
+            padding-bottom: 10px;
+        }
+        
+        .plan-details {
+            margin-bottom: 30px;
+        }
+        
+        .plan-name {
+            font-size: 1.5rem;
+            color: #ff6b00;
+            margin-bottom: 10px;
+        }
+        
+        .plan-price {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .plan-features {
+            margin-bottom: 20px;
+        }
+        
+        .plan-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .plan-features li i {
+            margin-right: 10px;
+            color: #ff6b00;
+        }
+        
+        .payment-form-container {
+            flex: 1.5;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .payment-form-container h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #ff6b00;
+            padding-bottom: 10px;
+        }
+        
+        .payment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .form-group input, 
+        .form-group select {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus, 
+        .form-group select:focus {
+            outline: none;
+            border-color: #ff6b00;
+            box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
+        }
+        
+        .card-element {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+        }
+        
+        .card-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .card-row .form-group {
+            flex: 1;
+        }
+        
+        .payment-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .payment-actions a {
+            color: #ff6b00;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .payment-actions a:hover {
+            color: #e05d00;
+        }
+        
+        .payment-methods {
+            margin-top: 30px;
+        }
+        
+        .payment-methods h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .payment-options {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .payment-option {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .payment-option i {
+            font-size: 1.5rem;
+        }
+        
+        .payment-option:hover {
+            border-color: #ff6b00;
+        }
+        
+        .payment-option.active {
+            border-color: #ff6b00;
+            background-color: rgba(255, 107, 0, 0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .payment-content {
+                flex-direction: column;
+            }
+            
+            .card-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .payment-header h1 {
+                font-size: 2rem;
+            }
+            
+            .payment-summary h2,
+            .payment-form-container h2 {
+                font-size: 1.5rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Flip<span>Zon</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#booking">Book Now</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="payment-container">
+        <div class="container">
+            <div class="payment-header">
+                <h1>Complete Your Purchase</h1>
+                <p>Secure payment processed through our encrypted gateway</p>
+            </div>
+            
+            <div class="payment-content">
+                <div class="payment-summary">
+                    <h2>Order Summary</h2>
+                    <div class="plan-details">
+                        <h3 class="plan-name">Express Plan</h3>
+                        <div class="plan-price">₹599</div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> 24-hour delivery</li>
+                            <li><i class="fas fa-check"></i> Domestic shipping</li>
+                            <li><i class="fas fa-check"></i> Advanced tracking</li>
+                            <li><i class="fas fa-check"></i> Up to 10kg</li>
+                        </ul>
+                    </div>
+                    <div class="total">
+                        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-top: 1px solid #eee;">
+                            <span>Subtotal:</span>
+                            <span>₹599</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-top: 1px solid #eee;">
+                            <span>Tax (18%):</span>
+                            <span>₹107.82</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-top: 1px solid #eee; font-weight: 700; font-size: 1.2rem;">
+                            <span>Total:</span>
+                            <span>₹706.82</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="payment-form-container">
+                    <h2>Payment Details</h2>
+                    <form class="payment-form" id="paymentForm">
+                        <div class="form-group">
+                            <label for="card-name">Name on Card</label>
+                            <input type="text" id="card-name" placeholder="Enter name as on card" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+                        </div>
+                        
+                        <div class="card-row">
+                            <div class="form-group">
+                                <label for="expiry-date">Expiry Date</label>
+                                <input type="text" id="expiry-date" placeholder="MM/YY" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="123" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <select id="country" required>
+                                <option value="">Select Country</option>
+                                <option value="IN" selected>India</option>
+                                <option value="US">United States</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="CA">Canada</option>
+                                <option value="AU">Australia</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="zip-code">ZIP/Postal Code</label>
+                            <input type="text" id="zip-code" placeholder="Enter ZIP code" required>
+                        </div>
+                        
+                        <div class="payment-methods">
+                            <h3>Payment Method</h3>
+                            <div class="payment-options">
+                                <div class="payment-option active">
+                                    <i class="fab fa-cc-visa"></i>
+                                    <span>Card</span>
+                                </div>
+                                <div class="payment-option">
+                                    <i class="fab fa-google-pay"></i>
+                                    <span>Google Pay</span>
+                                </div>
+                                <div class="payment-option">
+                                    <i class="fab fa-paypal"></i>
+                                    <span>PayPal</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-actions">
+                            <a href="index.html#pricing"><i class="fas fa-arrow-left"></i> Back to Plans</a>
+                            <button type="submit" class="btn">Pay ₹706.82</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple validation
+            const cardNumber = document.getElementById('card-number').value;
+            const expiryDate = document.getElementById('expiry-date').value;
+            const cvv = document.getElementById('cvv').value;
+            
+            if (!cardNumber || !expiryDate || !cvv) {
+                alert('Please fill in all payment details');
+                return;
+            }
+            
+            // In a real implementation, you would process payment here
+            // For demo, we'll simulate a successful payment
+            
+            const submitBtn = document.querySelector('#paymentForm .btn');
+            submitBtn.textContent = 'Processing...';
+            submitBtn.disabled = true;
+            
+            // Simulate payment processing
+            setTimeout(() => {
+                submitBtn.textContent = '✓ Payment Successful!';
+                submitBtn.style.background = 'linear-gradient(135deg, #00c853, #5efc82)';
+                
+                // Redirect to confirmation page after 1.5 seconds
+                setTimeout(() => {
+                    window.location.href = 'payment-success.html';
+                }, 1500);
+            }, 2000);
+        });
+        
+        // Toggle payment methods
+        const paymentOptions = document.querySelectorAll('.payment-option');
+        paymentOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                paymentOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+            });
+        });
+        
+        // Format card number input
+        document.getElementById('card-number').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s+/g, '');
+            if (value.length > 0) {
+                value = value.match(new RegExp('.{1,4}', 'g')).join(' ');
+            }
+            e.target.value = value;
+        });
+        
+        // Format expiry date input
+        document.getElementById('expiry-date').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            e.target.value = value;
+        });
+    </script>
+</body>
+</html>
