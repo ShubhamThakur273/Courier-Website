@@ -443,11 +443,7 @@ resultsContainer.innerHTML = `
             if (oldMap._leaflet_map) {
                 oldMap._leaflet_map.remove();
             }
-            
-           // Initialize new map
            const map = L.map('tracking-map').setView(routeData.current, 5);
-            
-         
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);
@@ -483,8 +479,30 @@ resultsContainer.innerHTML = `
                     marker.openPopup();
                 }
             });
-            
-            
+            const routeCoordinates = routeData.stops.map(stop => stop.coords);
+            const routeLine = L.polyline(routeCoordinates, {
+                color: '#4CAF50',
+                weight: 3,
+                dashArray: '5, 5'
+            }).addTo(map);
+            map.fitBounds(routeLine.getBounds());
+            const isCurrentAtStop = routeData.stops.some(stop => 
+                stop.coords[0] === routeData.current[0] && 
+                stop.coords[1] === routeData.current[1]
+            );
+            if (!isCurrentAtStop) {
+                const currentIcon = L.divIcon({
+                    className: 'custom-icon',
+                    html: `<div style="background-color: orange; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white;"></div>`,
+                    iconSize: [20, 20],
+                    iconAnchor: [10, 10]
+                });
+                const currentMarker = L.marker(routeData.current, { icon: currentIcon })
+                    .addTo(map)
+                    .bindPopup('Current Location')
+                    .openPopup();
+            }
+        }
             </script>
   </body>
 </html>
