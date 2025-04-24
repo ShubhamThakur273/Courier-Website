@@ -443,3 +443,34 @@
             margin: 0 auto 0.5rem;
             color: #fff;
         }
+.status-item.active .status-icon {
+            background: #4CAF50;
+        }
+        
+        .status-item.completed .status-icon {
+            background: #4CAF50;
+        }
+        
+        .status-text {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .status-item.active .status-text,
+        .status-item.completed .status-text {
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .tracking-details {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .package-info {
+            flex: 1;
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
