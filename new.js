@@ -23,4 +23,14 @@ window.addEventListener('DOMContentLoaded', function () {
         document.querySelector('footer').classList.add('dark-mode');
     }
 });
+document.getElementById('toggle').addEventListener('click', function () {
+    const icon = this;
+    if (document.body.classList.contains('dark-mode')) {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    } else {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
+});
 // from here
