@@ -1,0 +1,67 @@
+#toggle{
+    margin-left: 5px;
+    font-size: 20px;
+}
+#toggle:hover{
+    cursor: pointer;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+header.dark-mode, footer.dark-mode {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+nav.dark-mode ul li a {
+    color: #ffffff;
+}
+
+.hero.dark-mode {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+/* Corrected CSS */
+body.dark-mode #zon {
+    color: white;
+}
+
+body.dark-mode #services{
+    background-color: #121212;
+    color: white;
+    border-bottom: solid 1px rgb(167, 167, 167) ;
+    border-top: solid 1px rgb(167, 167, 167) ;
+}
+
+body.dark-mode .section-title{
+    color: white;
+}
+body.dark-mode  .card-wrapper {
+    background-color: #121212 !important;
+}
+body.dark-mode #booking{
+    background-color:#121212 ;
+}
+body.dark-mode #about{
+    background-color:#121212 ;
+}
+body.dark-mode #about h2{
+    color: white;
+    border-top: solid 1px rgb(167, 167, 167) ;
+    
+}
+body.dark-mode #contact{
+    background-color:#121212 ;
+    border-top: solid 1px rgb(167, 167, 167) ;
+}
+/* from here */
+
+
+
+
+
+
+/*  */
