@@ -57,6 +57,36 @@ body.dark-mode #contact{
     background-color:#121212 ;
     border-top: solid 1px rgb(167, 167, 167) ;
 }
+body.dark-mode #pricing{
+    background-color:#121212 ;
+    border-top: solid 1px rgb(167, 167, 167) ;
+    color: black;
+}
+body.dark-mode .testimonials{
+    background-color:#121212 ;
+    border-top: solid 1px rgb(167, 167, 167) ;
+  
+}
+
+body.dark-mode .faq-section{
+    background-color:#121212 ;
+    border-top: solid 1px rgb(167, 167, 167) ;
+  
+}
+body.dark-mode .faq-item{
+    color: black;
+  
+}
+
+body.dark-mode .card-back h3{
+    color: black;
+  
+}
+
+body.dark-mode .card-front h3{
+    color: black;
+  
+}
 /* from here */
 
 
