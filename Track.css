@@ -392,3 +392,54 @@
         @page {
     size: auto;
     margin: 5mm 5mm 5mm 5mm;
+        }
+.tracking-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .tracking-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+    
+        .tracking-status {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .status-progress {
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #e0e0e0;
+            z-index: 1;
+        }
+        
+        .status-progress-bar {
+            height: 100%;
+            background: #4CAF50;
+            transition: width 0.5s ease;
+        }
+        
+        .status-item {
+            text-align: center;
+            z-index: 2;
+        }
+        
+        .status-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+            color: #fff;
+        }
