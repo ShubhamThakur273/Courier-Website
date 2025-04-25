@@ -581,3 +581,48 @@
     justify-content: space-between;
     align-items: center;
 }
+.status-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-processing {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+.status-transit {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+.status-delivered {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status-out {
+    background: #fff8e1;
+    color: #ff8f00;
+}
+
+@media (max-width: 768px) {
+    .tracking-details {
+        flex-direction: column;
+    }
+    
+    .tracking-status {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .status-progress {
+        display: none;
+    }
+    
+    .tracking-cards {
+        grid-template-columns: 1fr;
+    }
+}
