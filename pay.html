@@ -44,6 +44,31 @@
                     <div class="payment-option active">
                         <i class="fab fa-google-pay"></i> Google Pay
                     </div>
+                <div class="qr-code">
+                        <img src="qr-code.jpg" alt="Google Pay QR Code">
+                    </div>
+                    <p>Scan the QR code or use UPI ID: <strong>shubhamthakur.thakur5566@okhdfcbank</strong></p>
+                    <button id="pay-now" class="btn">Pay Now</button>
+                </div>
+            </div>
+            <div class="success-message" id="success-message">
+                <i class="fas fa-check-circle"></i>
+                <h3>Payment Successful!</h3>
+                <p>Thank you for your payment. Your order has been confirmed.</p>
+                <a href="index.html" class="btn">Back to Home</a>
+            </div>
+        </div>
+    </section>
+    <div class="discard-modal" id="discard-modal">
+        <div class="discard-content">
+            <h3>Are you done?</h3>
+            <p>Once you leave, you can't undo this action. Continue?</p>
+            <div class="discard-btns">
+                <button id="confirm-discard" class="btn">Yes</button>
+                <button id="cancel-discard" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
 
 
 </body>
