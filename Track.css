@@ -626,3 +626,43 @@
         grid-template-columns: 1fr;
     }
 }
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tracking-container {
+    margin-top: 70px;
+}
+
+.print-receipt-section {
+    visibility: hidden;
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .print-receipt-section,
+    .print-receipt-section * {
+        visibility: visible;
+        opacity: 1;
+        position: static;
+        left: auto;
+    }
+
+    .print-receipt-section {
+        display: block;
+        width: 100%;
+        padding: 20px;
+        background: white;
+        color: black;
+    }
+}
