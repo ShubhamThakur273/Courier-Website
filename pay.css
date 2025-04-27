@@ -48,5 +48,50 @@
             flex-direction: column;
             align-items: center;
         }
+.qr-code {
+            width: 250px;
+            height: 250px;
+            background: #f5f5f5;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #ccc;
+        }
         
+        .qr-code img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .plan-info {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        #pay-now {
+            margin-top: 1rem;
+            width: 100%;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }        
       
