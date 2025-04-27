@@ -203,3 +203,19 @@
             justify-content: center;
             gap: 1rem;
         }
+.price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color:#ff6b00;
+        }
+        
+        @media (max-width: 768px) {
+            .payment-container {
+                flex-direction: column;
+            }
+            
+            .payment-details {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+        }
