@@ -741,3 +741,18 @@
         transform: translateY(0);
     }
 }
+.hero .typewriter-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: #0d6efd;
+    margin-left: 2px;
+    animation: blink 0.7s steps(1) infinite;
+    vertical-align: bottom;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
