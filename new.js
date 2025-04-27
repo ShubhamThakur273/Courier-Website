@@ -34,3 +34,31 @@ document.getElementById('toggle').addEventListener('click', function () {
     }
 });
 // from here
+document.addEventListener('DOMContentLoaded', function() {
+    // Target the h1 inside the hero section with id="home"
+    var heroSection = document.getElementById('home');
+    if (!heroSection) return;
+  
+    var heading = heroSection.querySelector('h1');
+    if (!heading) return;
+  
+    var text = "Fast & Reliable Courier Services"; // The text you want to animate
+    var idx = 0;
+  
+    // Clear the heading and add a blinking cursor span
+    heading.textContent = '';
+    var cursor = document.createElement('span');
+    cursor.className = 'typewriter-cursor';
+    heading.appendChild(cursor);
+  
+    function typeWriter() {
+      if (idx < text.length) {
+        heading.insertBefore(document.createTextNode(text.charAt(idx)), cursor);
+        idx++;
+        setTimeout(typeWriter, 60);
+      }
+    }
+    typeWriter();
+  });
+  
+  
