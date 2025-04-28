@@ -28,5 +28,54 @@
             const phone = document.getElementById('phone').value;
             const planName = document.getElementById('plan-name').textContent;
             const planPrice = document.getElementById('plan-price').textContent;
+// Validate form
+if (!name || !email || !phone) {
+    alert('Please fill in all billing information');
+    return;
+}
 
+// Validate email format
+if (!validateEmail(email)) {
+    alert('Please enter a valid email address');
+    return;
+}
+
+// Show loading state
+const payBtn = document.getElementById('pay-now');
+payBtn.disabled = true;
+payBtn.textContent = 'Processing...';
+
+// Send email
+emailjs.send('service_gqs4mve', 'template_kmr778w', {
+    to_name: name,
+    to_email: email,
+    plan_name: planName,
+    plan_price: planPrice,
+    payment_date: new Date().toLocaleDateString(),
+    customer_phone: phone
+})
+.then(function(response) {
+    console.log('Email sent successfully', response);
+    showSuccess();
+}, function(error) {
+    console.error('Failed to send email:', error);
+    // Fallback - show success even if email fails
+    showSuccess();
+    alert('Payment was successful but we encountered an issue sending the confirmation email.');
+})
+.finally(() => {
+    payBtn.disabled = false;
+    payBtn.textContent = 'Pay Now';
+});
+
+// Helper functions
+function showSuccess() {
+    document.querySelector('.payment-container').style.display = 'none';
+    document.getElementById('success-message').style.display = 'block';
+}
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
                                                             
