@@ -78,4 +78,15 @@ function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
 }
-                                                            
+ document.getElementById('close-btn').addEventListener('click', function() {
+    document.getElementById('discard-modal').style.display = 'flex';
+});
+
+// Discard modal buttons
+document.getElementById('confirm-discard').addEventListener('click', function() {
+    window.location.href = 'index.html';
+});
+
+document.getElementById('cancel-discard').addEventListener('click', function() {
+    document.getElementById('discard-modal').style.display = 'none';
+});                                                           
