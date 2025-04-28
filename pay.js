@@ -67,7 +67,7 @@ emailjs.send('service_gqs4mve', 'template_kmr778w', {
     payBtn.disabled = false;
     payBtn.textContent = 'Pay Now';
 });
-
+        });
 // Helper functions
 function showSuccess() {
     document.querySelector('.payment-container').style.display = 'none';
