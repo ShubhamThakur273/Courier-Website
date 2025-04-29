@@ -384,6 +384,7 @@ body {
                         <div style="display: flex; justify-content: space-between; padding: 10px 0; border-top: 1px solid #eee; font-weight: 700; font-size: 1.2rem;">
                             <span>Total:</span>
                             <span>₹706.82</span>
+                            <button id="themeToggle" class="btn">Toggle Dark Mode</button>
                         </div>
                     </div>
                 </div>
@@ -459,6 +460,25 @@ body {
     </section>
     
     <script>
+        document.getElementById("themeToggle").addEventListener("click", () => {
+  const theme = document.documentElement.getAttribute("data-theme");
+  document.documentElement.setAttribute("data-theme", theme === "dark" ? "light" : "dark");
+});
+document.getElementById('card-number').addEventListener('input', function (e) {
+    const value = e.target.value.replace(/\D/g, '');
+    const visaRegex = /^4[0-9]{0,}/;
+    const masterCardRegex = /^5[1-5][0-9]{0,}/;
+    const logoContainer = document.querySelector(".card-logo");
+
+    if (visaRegex.test(value)) {
+        logoContainer.innerHTML = '<i class="fab fa-cc-visa"></i>';
+    } else if (masterCardRegex.test(value)) {
+        logoContainer.innerHTML = '<i class="fab fa-cc-mastercard"></i>';
+    } else {
+        logoContainer.innerHTML = '';
+    }
+});
+
         document.getElementById('paymentForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
