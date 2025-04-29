@@ -313,6 +313,17 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
 }
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  display: none;
+  z-index: 2000;
+}
 
         @media (max-width: 768px) {
             .payment-content {
@@ -527,7 +538,15 @@ function validateExpiryDate(date) {
                 option.classList.add('active');
             });
         });
-        
+        function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.style.display = 'block';
+  setTimeout(() => {
+    toast.style.display = 'none';
+  }, 3000);
+}
+
         // Format card number input
         document.getElementById('card-number').addEventListener('input', function(e) {
             let value = e.target.value.replace(/\s+/g, '');
