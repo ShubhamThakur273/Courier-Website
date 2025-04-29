@@ -359,6 +359,22 @@ body {
                 margin: 5px 10px;
             }
         }
+        .progress-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.step {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 3px solid #ddd;
+  font-weight: 600;
+}
+.step.active {
+  border-color: var(--primary-color);
+}
+
     </style>
 </head>
 <body>
@@ -460,7 +476,13 @@ body {
                             </div>
                         </div>
                         <div class="form-group card-logo"></div>
-
+                        <div class="progress-bar">
+                            <div class="step active">Plan</div>
+                            <div class="step">Address</div>
+                            <div class="step">Payment</div>
+                            <div class="step">Done</div>
+                          </div>
+                          
                         <div class="payment-actions">
                             <a href="index.html#pricing"><i class="fas fa-arrow-left"></i> Back to Plans</a>
                             <button type="submit" class="btn">Pay ₹706.82</button>
